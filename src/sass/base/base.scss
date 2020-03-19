@@ -35,11 +35,11 @@ p {
 
 %button {
   width: 100%;
-  border-radius: 15px;
+  border-radius: 10px;
   border-color: $main-color;
   background-color: $main-color;
   font-weight: 700;
-  color: #1b1b1b;
+  color: #fff;
   cursor: pointer;
   transition: all 0.2s linear;
   outline: none;
@@ -48,4 +48,11 @@ p {
     background-color: #786133;
     border-color: #786133;
   }
+}
+
+.container {
+  width: 1100px;
+  height: 100vh;
+  margin: 0 auto;
+  text-align: center;
 }

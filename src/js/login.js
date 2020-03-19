@@ -1,23 +1,41 @@
-"use script";
-import verifyError from "./verify";
-import showMatch from "./showMatch";
+"use strict";
+import { setData } from "./localStorage";
 
-export const error = document.querySelector(".error-message");
+const formLogin = document.querySelector("#login");
+const file = document.getElementById("myfile");
+const fileButton = document.querySelector(".login__file");
 
-export function logUser() {
+export function login() {
   if (!document.querySelector("#LOGIN")) {
     return;
   }
-  const form = document.querySelector("#form-login");
+  formLogin.addEventListener("submit", handleSubmit);
+  file.addEventListener("change", readFile);
 
-  form.addEventListener("submit", handleLogin);
-
-  function handleLogin(e) {
+  function handleSubmit(e) {
     e.preventDefault();
-    verifyError();
-    showMatch().catch(err => {
-      error.textContent = err.response.data;
-      error.classList.add("isShown");
+
+    const { username } = e.currentTarget.elements;
+
+    setData("username", username.value);
+    // document.location.replace("/form/dist/chat.html");
+  }
+}
+
+// image insert
+function readFile(e) {
+  //display file name
+  const { value } = e.target;
+  const fileName = value.replace(/^.*\\/g, "");
+  fileButton.innerHTML = fileName;
+
+  if (this.files && this.files[0]) {
+    var FR = new FileReader();
+
+    FR.addEventListener("load", function() {
+      setData("image", FR.result);
     });
+
+    FR.readAsDataURL(this.files[0]);
   }
 }

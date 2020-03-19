@@ -1,0 +1,17 @@
+form {
+  display: inline-block;
+}
+.textarea {
+  width: 450px;
+  height: 150px;
+  border: 1px solid #000;
+  text-align: left;
+  overflow: scroll;
+}
+#map {
+  margin-top: 30px;
+  height: 300px;
+}
+.incoming > * {
+  margin-left: 5px;
+}

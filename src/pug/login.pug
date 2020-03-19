@@ -1,0 +1,18 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    title="Registration"
+  body#LOGIN
+    section.section-login
+      .container
+        .login__wrapper
+          h1 Login to chat
+          form#login.login
+            p.login__text insert your name
+            input#input.login__input(type='text' name='username' placeholder='username' autocomplete="off")
+            label(for="myfile" class="login__file") Choose file ...
+            input#myfile.input-file(type='file' accept='.jpg, .jpeg' name="myfile")
+            input(type="submit" value="login" class="login__button")
