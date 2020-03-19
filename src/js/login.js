@@ -26,9 +26,14 @@ export function login() {
 function readFile(e) {
   //display file name
   const { value } = e.target;
-  const fileName = value.replace(/^.*\\/g, "");
-  fileButton.innerHTML = fileName;
 
+  if (value.length === 0) {
+    fileButton.innerHTML = "Choose file...";
+  } else {
+    const fileName = value.replace(/^.*\\/g, "");
+    fileButton.innerHTML = fileName;
+  }
+  //convert to base64
   if (this.files && this.files[0]) {
     var FR = new FileReader();
 
