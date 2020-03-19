@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Socket</title>
+    <style>
+      .container {
+        width: 1100px;
+        height: 100vh;
+        margin: 0 auto;
+        text-align: center;
+      }
+      form {
+        display: inline-block;
+      }
+      .textarea {
+        width: 450px;
+        height: 150px;
+        border: 1px solid #000;
+        text-align: left;
+        overflow: scroll;
+      }
+      #map {
+        margin-top: 30px;
+        height: 300px;
+      }
+      .incoming > * {
+        margin-left: 5px;
+      }
+      .input-file {
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form id="form">
+        <div id="area" class="textarea"></div>
+        <input type="text" id="input" name="inputtext" placeholder="message" />
+        <input type="text" id="input" name="name" placeholder="username" />
+        <p>Select a file:</p>
+        <input
+          type="file"
+          id="myfile"
+          class="input-file"
+          accept=".jpg, .jpeg"
+        />
+        <input type="submit" value="send message" />
+      </form>
+
+      <div id="map"></div>
+    </div>
+    <script type="module" src="script.js"></script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7Zkwv8ZHein66BAALTpWsJAQorKjiTlw"
+    ></script>
+  </body>
+</html>

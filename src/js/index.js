@@ -1,0 +1,10 @@
+"use strict";
+import "./../sass/styles.scss";
+import "../images/logo.jpg";
+import "../images/post-2.png";
+import { initSwiper } from "./swiper";
+import { logUser } from "./login";
+import { register } from "./registration";
+register();
+logUser();
+initSwiper();

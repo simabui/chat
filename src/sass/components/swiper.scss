@@ -1,0 +1,19 @@
+.section-swiper {
+  background-color: $background-color;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.swiper-container {
+  width: 600px;
+  height: 300px;
+}
+
+.swiper__img {
+  width: 100%;
+}
+
+.section-map #map {
+  height: 500px;
+}
