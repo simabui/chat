@@ -3,10 +3,8 @@
 const form = document.querySelector("#form");
 const input = document.querySelector("#input");
 const textarea = document.querySelector(".textarea");
-const file = document.getElementById("myfile");
 
 form.addEventListener("submit", handleMessage);
-file.addEventListener("change", readFile);
 
 let map, addedImg;
 let ws = new WebSocket("wss://venify.herokuapp.com/chat");
@@ -93,16 +91,4 @@ function markerInit(coords) {
 
   map.setZoom(10);
   map.setCenter(coords);
-}
-
-function readFile() {
-  if (this.files && this.files[0]) {
-    var FR = new FileReader();
-
-    FR.addEventListener("load", function(e) {
-      addedImg = FR.result;
-    });
-
-    FR.readAsDataURL(this.files[0]);
-  }
 }
