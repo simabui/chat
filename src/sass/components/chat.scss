@@ -62,6 +62,7 @@ form {
 
     .incoming__wrapper {
       margin-left: 5px;
+      color: $main-color;
     }
   }
 
@@ -76,12 +77,12 @@ form {
 
     .incoming__wrapper {
       margin-right: 5px;
+      color: $main-color;
     }
   }
 
   &__wrapper {
     display: block;
-    color: $main-color;
   }
 
   &__info {

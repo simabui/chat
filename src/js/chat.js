@@ -9,7 +9,7 @@ export function chat() {
 
   if (!isPresentInLocal()) {
     alert("You need to login");
-    // document.location.replace("/form/dist/login.html");
+    document.location.replace("/chat/dist/login.html");
   }
 
   const form = document.querySelector("#form-chat");
