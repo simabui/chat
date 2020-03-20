@@ -92,6 +92,7 @@ form {
 
   &__time {
     color: #c9c6c6;
+    font-size: 12px;
   }
 
   &__name {
@@ -108,4 +109,8 @@ form {
   &__message {
     word-break: break-all;
   }
+}
+
+.input-error {
+  border-bottom: 1px solid #ff0000;
 }

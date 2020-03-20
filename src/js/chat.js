@@ -31,6 +31,8 @@ export function chat() {
     e.preventDefault();
     // input message
     let message = input.value;
+    //validate input
+    validateInput(message);
     const geo = await getGeoLocation();
 
     ws.onmessage = ({ data }) => {
@@ -67,5 +69,14 @@ export function chat() {
   function isPresentInLocal() {
     const name = getData("username");
     return name;
+  }
+
+  function validateInput(value) {
+    if (value === "") {
+      input.classList.add("input-error");
+      return;
+    } else {
+      input.classList.remove("input-error");
+    }
   }
 }
