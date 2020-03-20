@@ -27,7 +27,7 @@ export function login() {
     }
 
     setData("username", username.value);
-    document.location.replace("/form/dist/chat.html");
+    document.location.replace("/chat/dist/chat.html");
   }
 }
 
