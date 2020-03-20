@@ -54,7 +54,7 @@ module.exports = {
       canPrint: true
     }),
     new HtmlWebpackPlugin({
-      filename: "index.html",
+      filename: "login.html",
       template: "./src/pug/login.pug",
       minify: {
         collapseWhitespace: true,
@@ -66,7 +66,7 @@ module.exports = {
       }
     }),
     new HtmlWebpackPlugin({
-      filename: "swiper.html",
+      filename: "chat.html",
       template: "./src/pug/chat.pug",
       minify: {
         collapseWhitespace: true,

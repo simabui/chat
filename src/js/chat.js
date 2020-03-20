@@ -8,16 +8,16 @@ export function chat() {
   if (!document.querySelector("#CHAT-PAGE")) return;
 
   if (!isPresentInLocal()) {
-    document.location.replace("/form/dist/login.html");
+    alert("You need to login");
+    // document.location.replace("/form/dist/login.html");
   }
 
   const form = document.querySelector("#form-chat");
   const input = document.querySelector("#input");
   const textarea = document.querySelector(".textarea");
   //take from local
-  const name = getData("username");
+  let name = getData("username");
   let addedImg = getData("image");
-  let name = "username";
 
   form.addEventListener("submit", handleMessage);
 

@@ -44,5 +44,9 @@
     "webpack-dev-server": "^3.10.1",
     "webpack-merge": "^4.2.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "axios": "^0.19.2",
+    "handlebars": "^4.7.3",
+    "swiper": "^5.3.6"
+  }
 }
