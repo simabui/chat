@@ -4,13 +4,15 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible" content="ie=edge")
-    title="Registration"
+    title="Chat"
   body#CHAT-PAGE
-    .container
-      form#form
-        #area.textarea
-        input#input(type='text' name='inputtext' placeholder='message')
-        input(type='submit' value='send message')
-        div#map
-        script(type='module' src='script.js')
-        script(async='' defer='' src='https://maps.googleapis.com/maps/api/js?key=AIzaSyB7Zkwv8ZHein66BAALTpWsJAQorKjiTlw')
+    section.chat-section
+      .container
+        .chat-wrapper
+          form#form-chat.form-chat
+            #area.textarea
+            input#input(type='text' name='inputtext' placeholder='Type message...' class="form-chat__input" autocomplete="off")
+            input(type='submit' value='send' class="form-chat__button")
+          div#map
+    script(type='module' src='script.js')
+    script(async='' defer='' src='https://maps.googleapis.com/maps/api/js?key=AIzaSyB7Zkwv8ZHein66BAALTpWsJAQorKjiTlw')

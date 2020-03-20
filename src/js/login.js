@@ -9,13 +9,15 @@ export function login() {
   if (!document.querySelector("#LOGIN")) {
     return;
   }
+
   formLogin.addEventListener("submit", handleSubmit);
+  //event file reader
   file.addEventListener("change", readFile);
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    const { username, myfile } = e.currentTarget.elements;
+    const { username } = e.currentTarget.elements;
 
     //validate empty inputs
     const fileLocal = getData("image");
@@ -25,7 +27,7 @@ export function login() {
     }
 
     setData("username", username.value);
-    // document.location.replace("/form/dist/chat.html");
+    document.location.replace("/form/dist/chat.html");
   }
 }
 

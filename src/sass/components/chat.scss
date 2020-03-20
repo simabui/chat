@@ -1,17 +1,110 @@
+.chat-section {
+  background-color: $background-color;
+  padding-top: 50px;
+}
+.chat-wrapper {
+  @include row-flex();
+}
 form {
   display: inline-block;
+  @include col();
+  @include size(6);
+  @include size-sm(12);
+}
+
+.form-chat {
+  &__input {
+    outline: none;
+    width: 70%;
+    border: none;
+    border-bottom: 1px solid $main-color;
+    margin-top: 10px;
+    float: left;
+    color: $main-color;
+    background: transparent;
+    padding-bottom: 5px;
+  }
+
+  &__button {
+    @extend %button;
+    width: 20%;
+    margin-top: 10px;
+  }
 }
 .textarea {
-  width: 450px;
-  height: 150px;
-  border: 1px solid #000;
-  text-align: left;
+  height: 400px;
+  border: 1px solid $main-color;
   overflow: scroll;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 #map {
-  margin-top: 30px;
-  height: 300px;
+  @include col();
+  @include size(6);
+  @include size-sm(12);
+  height: 400px;
 }
-.incoming > * {
-  margin-left: 5px;
+.incoming {
+  width: 200px;
+  display: flex;
+  align-items: flex-start;
+  margin-top: 10px;
+
+  &--mine {
+    align-self: flex-start;
+    flex-direction: row;
+    text-align: left;
+
+    .incoming__name {
+      margin-left: 5px;
+    }
+
+    .incoming__wrapper {
+      margin-left: 5px;
+      color: $main-color;
+    }
+  }
+
+  &--guest {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+    text-align: right;
+
+    .incoming__name {
+      margin-left: 5px;
+    }
+
+    .incoming__wrapper {
+      margin-right: 5px;
+    }
+  }
+
+  &__wrapper {
+    display: block;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+  }
+
+  &__time {
+    color: #c9c6c6;
+  }
+
+  &__name {
+    font-weight: 700;
+  }
+
+  &__img {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #000;
+    border-radius: 50%;
+  }
+
+  &__message {
+    word-break: break-all;
+  }
 }
