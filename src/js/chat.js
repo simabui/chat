@@ -59,23 +59,18 @@ export function chat() {
       markerInit(cords);
     };
 
-    getGeoLocation()
-      .then(geo => {
-        sendButton.innerHTML = "Send";
-        return geo;
-      })
-      .then(geo => {
-        // send message
-        ws.send(
-          JSON.stringify({
-            cords: geo,
-            message,
-            name,
-            image: addedImg,
-            mine: true
-          })
-        );
-      });
+    getGeoLocation().then(geo => {
+      ws.send(
+        JSON.stringify({
+          cords: geo,
+          message,
+          name,
+          image: addedImg,
+          mine: true
+        })
+      );
+      sendButton.innerHTML = "Send";
+    });
 
     //reset input
     input.value = "";
