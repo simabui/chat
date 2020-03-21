@@ -1,6 +1,9 @@
 .chat-section {
   background-color: $background-color;
   padding-top: 50px;
+  padding-bottom: 50px;
+  height: 100vh;
+  @include md(height, auto);
 }
 .chat-wrapper {
   @include row-flex();
@@ -27,13 +30,22 @@ form {
 
   &__button {
     @extend %button;
+    @include sm(font-size, 12px);
     width: 20%;
     height: 40px;
     margin-top: 10px;
     position: relative;
   }
+
+  &__interface {
+    @include md(margin, 10px 0);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 .textarea {
+  @include sm(height, 300px);
   height: 400px;
   border: 1px solid $main-color;
   overflow: scroll;
