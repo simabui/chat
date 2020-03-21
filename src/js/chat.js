@@ -3,6 +3,7 @@ import { getGeoLocation } from "./geolocation";
 import { mapInit, markerInit } from "./googleMap";
 import { getData } from "./localStorage";
 import { render } from "./render";
+import spinner from "./spinner";
 
 export function chat() {
   if (!document.querySelector("#CHAT-PAGE")) return;
@@ -15,6 +16,8 @@ export function chat() {
   const form = document.querySelector("#form-chat");
   const input = document.querySelector("#input");
   const textarea = document.querySelector(".textarea");
+  const sendButton = document.querySelector(".form-chat__button");
+
   //take from local
   let name = getData("username");
   let addedImg = getData("image");
@@ -32,9 +35,16 @@ export function chat() {
     // input message
     let message = input.value;
     //validate input
-    validateInput(message);
-    const geo = await getGeoLocation();
+    if (message === "") {
+      input.classList.add("input-error");
+      return;
+    } else {
+      input.classList.remove("input-error");
+    }
+    // loading
+    sendButton.innerHTML = spinner;
 
+    // subscribe to WS
     ws.onmessage = ({ data }) => {
       const { message, cords, name, image, mine } = JSON.parse(data);
       const template = render(getTime(), name, message, image);
@@ -49,9 +59,24 @@ export function chat() {
       markerInit(cords);
     };
 
-    ws.send(
-      JSON.stringify({ cords: geo, message, name, image: addedImg, mine: true })
-    );
+    getGeoLocation()
+      .then(geo => {
+        sendButton.innerHTML = "Send";
+        return geo;
+      })
+      .then(geo => {
+        // send message
+        ws.send(
+          JSON.stringify({
+            cords: geo,
+            message,
+            name,
+            image: addedImg,
+            mine: true
+          })
+        );
+      });
+
     //reset input
     input.value = "";
   }
@@ -69,14 +94,5 @@ export function chat() {
   function isPresentInLocal() {
     const name = getData("username");
     return name;
-  }
-
-  function validateInput(value) {
-    if (value === "") {
-      input.classList.add("input-error");
-      return;
-    } else {
-      input.classList.remove("input-error");
-    }
   }
 }

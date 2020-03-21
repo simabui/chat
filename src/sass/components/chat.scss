@@ -28,7 +28,9 @@ form {
   &__button {
     @extend %button;
     width: 20%;
+    height: 40px;
     margin-top: 10px;
+    position: relative;
   }
 }
 .textarea {
