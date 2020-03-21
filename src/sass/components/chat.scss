@@ -21,7 +21,6 @@ form {
     width: 70%;
     border: none;
     border-bottom: 1px solid $main-color;
-    margin-top: 10px;
     float: left;
     color: $main-color;
     background: transparent;
@@ -60,7 +59,7 @@ form {
   height: 400px;
 }
 .incoming {
-  width: 200px;
+  width: 100%;
   display: flex;
   align-items: flex-start;
   margin-top: 10px;
