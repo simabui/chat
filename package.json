@@ -1,6 +1,6 @@
 {
   "name": "webpack_test",
-  "homepage": "https://simabui.github.io/chat/",
+  "homepage": "https://simabui.github.io/chat/login.html",
   "version": "1.0.0",
   "description": "this is test package of webpack",
   "main": "index.js",

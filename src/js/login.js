@@ -27,7 +27,7 @@ export function login() {
     }
 
     setData("username", username.value);
-    document.location.replace("/chat/dist/chat.html");
+    document.location.replace("/chat/chat.html");
   }
 }
 
@@ -46,7 +46,7 @@ function readFile(e) {
   if (this.files && this.files[0]) {
     var FR = new FileReader();
 
-    FR.addEventListener("load", function() {
+    FR.addEventListener("load", function () {
       setData("image", FR.result);
     });
 

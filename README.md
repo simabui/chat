@@ -2,4 +2,4 @@
 
 simple vanillaJS chat with WebSocket and Google API
 
-https://simabui.github.io/chat/dist/login.html
+https://simabui.github.io/chat/login.html
