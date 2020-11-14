@@ -4,6 +4,8 @@ import { mapInit, markerInit } from "./googleMap";
 import { getData } from "./localStorage";
 import { render } from "./render";
 import spinner from "./spinner";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
 
 export function chat() {
   if (!document.querySelector("#CHAT-PAGE")) return;
@@ -26,9 +28,18 @@ export function chat() {
 
   //init map
   mapInit();
-  let ws = new WebSocket("wss://venify.herokuapp.com/chat");
-  // wss://venify.herokuapp.com/chat
-  // ws://echo.websocket.org
+
+  new Promise((resolve, reject) => {
+    let ws = new WebSocket("wss://venify.herokuapp.com/chat");
+    ws.onerror = (err) => {
+      reject("Failed connect to chat");
+    };
+  }).catch((err) => {
+    Toastify({
+      text: err,
+      backgroundColor: "red",
+    }).showToast();
+  });
 
   async function handleMessage(e) {
     e.preventDefault();
@@ -59,14 +70,14 @@ export function chat() {
       markerInit(cords);
     };
 
-    getGeoLocation().then(geo => {
+    getGeoLocation().then((geo) => {
       ws.send(
         JSON.stringify({
           cords: geo,
           message,
           name,
           image: addedImg,
-          mine: true
+          mine: true,
         })
       );
       sendButton.innerHTML = "Send";
